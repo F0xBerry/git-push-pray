@@ -1,25 +1,38 @@
-# `app/` — application runtime
+# `app/` — Scout monorepo (runtime)
 
-Runnable services and everything the agent needs at runtime.
+Vendored from the hackathon demo app [devops-sre-job-match-app-example](https://github.com/GregoryKoshelenko/devops-sre-job-match-app-example), split for a clear harness layout.
 
 ## Layout
 
-| Path | Purpose |
-|------|---------|
-| `api/` | HTTP API (sync requests, health, auth boundary). |
-| `worker/` | Background jobs (queues, long-running agent steps). |
-| `prompts/` | Versioned system prompts and model config (same PR flow as code). |
-| `skills/` | `SKILL.md` and skill assets (search-jobs, tailor-cv, draft-cover-letter). |
+| Path | Role |
+|------|------|
+| `web/` | Vite + React UI (static build served by nginx in Docker/K8s). |
+| `api/` | Express API + agent logic (`/api/*`, health at `/api/health`). |
+| `worker/` | Placeholder background worker (heartbeat); replace with queues / jobs. |
+| `skills/` | Markdown skills consumed by the API (`SKILLS_DIR` → `/app/skills` in containers). |
+| `prompts/` | Extra prompt assets (keep versioned with PR + evals). |
 
-## Rules (hackathon brief)
+## Local run (Docker Compose)
 
-- **Prompt / skill change = PR** — must pass the same CI and `evals/` gate as code.
-- **No secrets in this tree** — use env + secret manager (see `platform/`).
+From the **repository root**:
 
-## Upstream demo app
+```bash
+docker compose up --build
+```
 
-Fork or vendor the reference prototype when you wire real code:
+Open `http://localhost:8080`. API is proxied as `/api/` → `api:3001`.
 
-- <https://github.com/GregoryKoshelenko/devops-sre-job-match-app-example>
+## Kubernetes
 
-Until then, this directory is the contract for where services and agent assets live.
+Manifests live under `platform/kustomize/`. Build with:
+
+```bash
+kubectl kustomize platform/kustomize/overlays/dev
+# or: kustomize build platform/kustomize/overlays/dev
+```
+
+Set `images:` in each overlay to your real registry (defaults assume `ghcr.io/f0xberry/...`).
+
+## Secrets
+
+Do **not** commit API keys. Use `.env` locally (gitignored) or cluster Secrets / External Secrets for prod.

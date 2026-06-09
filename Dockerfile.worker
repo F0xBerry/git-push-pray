@@ -1,0 +1,12 @@
+# Placeholder worker (heartbeat) — replace with queue consumer / agent worker later
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY app/worker/package.json ./
+RUN npm install --omit=dev 2>/dev/null || true
+
+COPY app/worker/src ./src
+
+ENV NODE_ENV=production
+CMD ["node", "src/index.mjs"]

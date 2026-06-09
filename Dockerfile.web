@@ -1,0 +1,22 @@
+# Static UI (Vite build) + nginx reverse proxy to API
+FROM node:20-alpine AS build
+
+WORKDIR /repo
+
+COPY app/web/package.json app/web/package-lock.json* ./app/web/
+RUN cd app/web && (npm ci 2>/dev/null || npm install)
+
+COPY app/web/ ./app/web/
+
+WORKDIR /repo/app/web
+RUN npm run build
+
+FROM nginx:alpine
+
+COPY --from=build /repo/app/web/dist /usr/share/nginx/html
+COPY docker/nginx.conf.template /etc/nginx/templates/default.conf.template
+
+# docker-compose: override to `api`. Kubernetes: set to `scout-api` (Service name).
+ENV API_UPSTREAM=api
+
+EXPOSE 80

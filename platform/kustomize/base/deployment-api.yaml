@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scout-api
+  labels:
+    app.kubernetes.io/name: scout-api
+    app.kubernetes.io/component: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: scout-api
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: scout-api
+        app.kubernetes.io/component: api
+    spec:
+      containers:
+        - name: api
+          image: scout/api:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3001
+          env:
+            - name: PORT
+              value: "3001"
+            - name: NODE_ENV
+              value: production
+            - name: SKILLS_DIR
+              value: /app/skills
+            - name: UPLOAD_DIR
+              value: /app/api/uploads
+            - name: PUBLIC_URL
+              value: "http://scout-web"
+          volumeMounts:
+            - name: uploads
+              mountPath: /app/api/uploads
+            - name: data
+              mountPath: /app/api/data
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              memory: 1Gi
+      volumes:
+        - name: uploads
+          emptyDir: {}
+        - name: data
+          emptyDir: {}

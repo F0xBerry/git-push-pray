@@ -1,0 +1,978 @@
+{
+  "version": 2,
+  "boards": [
+    {
+      "id": "linkedin",
+      "name": "LinkedIn Jobs",
+      "domain": "linkedin.com",
+      "region": "Global",
+      "countries": [
+        "WORLDWIDE",
+        "REMOTE",
+        "US",
+        "GB",
+        "DE",
+        "FR",
+        "NL",
+        "CA",
+        "AU",
+        "UA",
+        "PL",
+        "IN",
+        "SG",
+        "JP",
+        "BR",
+        "IL",
+        "IE",
+        "ES",
+        "IT",
+        "SE",
+        "CH",
+        "KR",
+        "AE"
+      ],
+      "parser": "web-only",
+      "priority": 10
+    },
+    {
+      "id": "indeed-us",
+      "name": "Indeed US",
+      "domain": "indeed.com",
+      "region": "North America",
+      "countries": [
+        "WORLDWIDE",
+        "REMOTE",
+        "US"
+      ],
+      "parser": "web-only",
+      "priority": 10
+    },
+    {
+      "id": "glassdoor",
+      "name": "Glassdoor",
+      "domain": "glassdoor.com",
+      "region": "North America",
+      "countries": [
+        "WORLDWIDE",
+        "REMOTE",
+        "US",
+        "GB",
+        "DE",
+        "FR",
+        "CA",
+        "AU"
+      ],
+      "parser": "web-only",
+      "priority": 9
+    },
+    {
+      "id": "wellfound",
+      "name": "Wellfound",
+      "domain": "wellfound.com",
+      "region": "North America",
+      "countries": [
+        "WORLDWIDE",
+        "REMOTE",
+        "US"
+      ],
+      "parser": "web-only",
+      "priority": 8
+    },
+    {
+      "id": "remoteok",
+      "name": "Remote OK",
+      "domain": "remoteok.com",
+      "region": "Global",
+      "countries": [
+        "WORLDWIDE",
+        "REMOTE"
+      ],
+      "parser": "generic",
+      "priority": 8,
+      "searchUrlTemplate": "https://remoteok.com/remote-{query}-jobs"
+    },
+    {
+      "id": "himalayas",
+      "name": "Himalayas",
+      "domain": "himalayas.app",
+      "region": "Global",
+      "countries": [
+        "WORLDWIDE",
+        "REMOTE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "weworkremotely",
+      "name": "We Work Remotely",
+      "domain": "weworkremotely.com",
+      "region": "Global",
+      "countries": [
+        "WORLDWIDE",
+        "REMOTE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "flexjobs",
+      "name": "FlexJobs",
+      "domain": "flexjobs.com",
+      "region": "North America",
+      "countries": [
+        "REMOTE",
+        "US",
+        "WORLDWIDE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "otta",
+      "name": "Otta",
+      "domain": "otta.com",
+      "region": "North America",
+      "countries": [
+        "REMOTE",
+        "GB",
+        "US",
+        "DE",
+        "WORLDWIDE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "jooble",
+      "name": "Jooble",
+      "domain": "jooble.org",
+      "region": "Global",
+      "countries": [
+        "WORLDWIDE",
+        "REMOTE",
+        "US",
+        "GB",
+        "DE",
+        "FR",
+        "UA",
+        "PL",
+        "ES",
+        "IT"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "talent-com",
+      "name": "Talent.com",
+      "domain": "talent.com",
+      "region": "Global",
+      "countries": [
+        "WORLDWIDE",
+        "REMOTE",
+        "US",
+        "CA",
+        "GB",
+        "DE",
+        "FR",
+        "AU",
+        "BR"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "careerjet",
+      "name": "Careerjet",
+      "domain": "careerjet.com",
+      "region": "Global",
+      "countries": [
+        "WORLDWIDE",
+        "REMOTE",
+        "US",
+        "GB",
+        "DE",
+        "FR",
+        "ES",
+        "IT",
+        "AU",
+        "CA"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "landing-jobs",
+      "name": "Landing.jobs",
+      "domain": "landing.jobs",
+      "region": "United Kingdom",
+      "countries": [
+        "WORLDWIDE",
+        "REMOTE",
+        "DE",
+        "FR",
+        "ES",
+        "PT",
+        "GB"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "ziprecruiter",
+      "name": "ZipRecruiter",
+      "domain": "ziprecruiter.com",
+      "region": "North America",
+      "countries": [
+        "US",
+        "REMOTE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "dice",
+      "name": "Dice",
+      "domain": "dice.com",
+      "region": "North America",
+      "countries": [
+        "US",
+        "REMOTE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "monster-us",
+      "name": "Monster",
+      "domain": "monster.com",
+      "region": "North America",
+      "countries": [
+        "US"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "careerbuilder",
+      "name": "CareerBuilder",
+      "domain": "careerbuilder.com",
+      "region": "North America",
+      "countries": [
+        "US"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "simplyhired",
+      "name": "SimplyHired",
+      "domain": "simplyhired.com",
+      "region": "North America",
+      "countries": [
+        "US"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "snagajob",
+      "name": "Snagajob",
+      "domain": "snagajob.com",
+      "region": "North America",
+      "countries": [
+        "US"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "adzuna-us",
+      "name": "Adzuna US",
+      "domain": "adzuna.com",
+      "region": "North America",
+      "countries": [
+        "US",
+        "GB",
+        "AU",
+        "DE",
+        "FR"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "dou-ua",
+      "name": "DOU.ua",
+      "domain": "jobs.dou.ua",
+      "region": "Ukraine",
+      "countries": [
+        "UA",
+        "REMOTE"
+      ],
+      "parser": "dou",
+      "priority": 10,
+      "searchUrlTemplate": "https://jobs.dou.ua/vacancies/?search={query}"
+    },
+    {
+      "id": "work-ua",
+      "name": "Work.ua",
+      "domain": "work.ua",
+      "region": "Ukraine",
+      "countries": [
+        "UA"
+      ],
+      "parser": "workua",
+      "priority": 10,
+      "searchUrlTemplate": "https://www.work.ua/jobs/?search={query}"
+    },
+    {
+      "id": "robota-ua",
+      "name": "Robota.ua",
+      "domain": "robota.ua",
+      "region": "Ukraine",
+      "countries": [
+        "UA"
+      ],
+      "parser": "generic",
+      "priority": 6,
+      "searchUrlTemplate": "https://robota.ua/zapros/{query}"
+    },
+    {
+      "id": "djinni",
+      "name": "Djinni",
+      "domain": "djinni.co",
+      "region": "Ukraine",
+      "countries": [
+        "UA",
+        "REMOTE",
+        "PL"
+      ],
+      "parser": "djinni",
+      "priority": 9,
+      "searchUrlTemplate": "https://djinni.co/jobs/?full_text={query}"
+    },
+    {
+      "id": "grc-ua",
+      "name": "GRC.ua",
+      "domain": "grc.ua",
+      "region": "Ukraine",
+      "countries": [
+        "UA"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "jooble-ua",
+      "name": "Jooble Ukraine",
+      "domain": "jooble.org",
+      "region": "Ukraine",
+      "countries": [
+        "UA"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "indeed-uk",
+      "name": "Indeed UK",
+      "domain": "uk.indeed.com",
+      "region": "United Kingdom",
+      "countries": [
+        "GB",
+        "REMOTE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "reed-uk",
+      "name": "Reed.co.uk",
+      "domain": "reed.co.uk",
+      "region": "United Kingdom",
+      "countries": [
+        "GB"
+      ],
+      "parser": "generic",
+      "priority": 6,
+      "searchUrlTemplate": "https://www.reed.co.uk/jobs/{query}-jobs"
+    },
+    {
+      "id": "totaljobs-uk",
+      "name": "Totaljobs",
+      "domain": "totaljobs.com",
+      "region": "United Kingdom",
+      "countries": [
+        "GB"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "cvlibrary-uk",
+      "name": "CV-Library",
+      "domain": "cv-library.co.uk",
+      "region": "United Kingdom",
+      "countries": [
+        "GB"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "cwjobs",
+      "name": "CWJobs",
+      "domain": "cwjobs.co.uk",
+      "region": "United Kingdom",
+      "countries": [
+        "GB"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "technojobs-uk",
+      "name": "Technojobs",
+      "domain": "technojobs.co.uk",
+      "region": "United Kingdom",
+      "countries": [
+        "GB"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "hackajob",
+      "name": "Hackajob",
+      "domain": "hackajob.com",
+      "region": "North America",
+      "countries": [
+        "GB",
+        "US",
+        "REMOTE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "indeed-de",
+      "name": "Indeed Germany",
+      "domain": "de.indeed.com",
+      "region": "Germany",
+      "countries": [
+        "DE",
+        "REMOTE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "stepstone-de",
+      "name": "StepStone",
+      "domain": "stepstone.de",
+      "region": "Germany",
+      "countries": [
+        "DE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "xing-de",
+      "name": "XING Jobs",
+      "domain": "xing.com",
+      "region": "Germany",
+      "countries": [
+        "DE",
+        "CH",
+        "AT"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "honeypot",
+      "name": "Honeypot",
+      "domain": "honeypot.io",
+      "region": "Germany",
+      "countries": [
+        "DE",
+        "NL",
+        "REMOTE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "jobs-ch",
+      "name": "Jobs.ch",
+      "domain": "jobs.ch",
+      "region": "Switzerland",
+      "countries": [
+        "CH"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "indeed-ch",
+      "name": "Indeed Switzerland",
+      "domain": "ch.indeed.com",
+      "region": "Switzerland",
+      "countries": [
+        "CH"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "jobs-at",
+      "name": "Karriere.at",
+      "domain": "karriere.at",
+      "region": "Global",
+      "countries": [
+        "AT"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "indeed-fr",
+      "name": "Indeed France",
+      "domain": "fr.indeed.com",
+      "region": "France",
+      "countries": [
+        "FR"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "wttj-fr",
+      "name": "Welcome to the Jungle",
+      "domain": "welcometothejungle.com",
+      "region": "France",
+      "countries": [
+        "FR",
+        "REMOTE",
+        "WORLDWIDE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "apec-fr",
+      "name": "APEC",
+      "domain": "apec.fr",
+      "region": "France",
+      "countries": [
+        "FR"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "indeed-nl",
+      "name": "Indeed Netherlands",
+      "domain": "nl.indeed.com",
+      "region": "Netherlands",
+      "countries": [
+        "NL"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "nvb-nl",
+      "name": "Nationale Vacaturebank",
+      "domain": "nationalevacaturebank.nl",
+      "region": "Netherlands",
+      "countries": [
+        "NL"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "pracuj-pl",
+      "name": "Pracuj.pl",
+      "domain": "pracuj.pl",
+      "region": "Poland",
+      "countries": [
+        "PL"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "justjoin-pl",
+      "name": "Just Join IT",
+      "domain": "justjoin.it",
+      "region": "Poland",
+      "countries": [
+        "PL",
+        "REMOTE"
+      ],
+      "parser": "generic",
+      "priority": 6,
+      "searchUrlTemplate": "https://justjoin.it/job-offers/all/all?keyword={query}"
+    },
+    {
+      "id": "nofluffjobs-pl",
+      "name": "No Fluff Jobs",
+      "domain": "nofluffjobs.com",
+      "region": "Poland",
+      "countries": [
+        "PL"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "bulldogjob-pl",
+      "name": "Bulldogjob",
+      "domain": "bulldogjob.com",
+      "region": "Poland",
+      "countries": [
+        "PL"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "indeed-ca",
+      "name": "Indeed Canada",
+      "domain": "ca.indeed.com",
+      "region": "Canada",
+      "countries": [
+        "CA"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "jobbank-ca",
+      "name": "Job Bank Canada",
+      "domain": "jobbank.gc.ca",
+      "region": "Canada",
+      "countries": [
+        "CA"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "seek-au",
+      "name": "Seek Australia",
+      "domain": "seek.com.au",
+      "region": "Australia",
+      "countries": [
+        "AU"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "indeed-au",
+      "name": "Indeed Australia",
+      "domain": "au.indeed.com",
+      "region": "Australia",
+      "countries": [
+        "AU"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "seek-nz",
+      "name": "Seek New Zealand",
+      "domain": "seek.co.nz",
+      "region": "Australia",
+      "countries": [
+        "AU"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "naukri-in",
+      "name": "Naukri",
+      "domain": "naukri.com",
+      "region": "India",
+      "countries": [
+        "IN"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "indeed-in",
+      "name": "Indeed India",
+      "domain": "indeed.co.in",
+      "region": "India",
+      "countries": [
+        "IN"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "foundit-in",
+      "name": "Foundit",
+      "domain": "foundit.in",
+      "region": "India",
+      "countries": [
+        "IN"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "irishjobs-ie",
+      "name": "IrishJobs",
+      "domain": "irishjobs.ie",
+      "region": "Ireland",
+      "countries": [
+        "IE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "jobs-ie",
+      "name": "Jobs.ie",
+      "domain": "jobs.ie",
+      "region": "Ireland",
+      "countries": [
+        "IE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "infojobs-es",
+      "name": "InfoJobs",
+      "domain": "infojobs.net",
+      "region": "Spain",
+      "countries": [
+        "ES"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "tecnoempleo-es",
+      "name": "Tecnoempleo",
+      "domain": "tecnoempleo.com",
+      "region": "Spain",
+      "countries": [
+        "ES"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "indeed-it",
+      "name": "Indeed Italy",
+      "domain": "it.indeed.com",
+      "region": "Italy",
+      "countries": [
+        "IT"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "arbetsformedlingen-se",
+      "name": "Arbetsförmedlingen",
+      "domain": "arbetsformedlingen.se",
+      "region": "Sweden",
+      "countries": [
+        "SE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "jobbland-se",
+      "name": "Jobbland",
+      "domain": "jobbland.se",
+      "region": "Sweden",
+      "countries": [
+        "SE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "finn-no",
+      "name": "Finn.no Jobs",
+      "domain": "finn.no",
+      "region": "Global",
+      "countries": [
+        "WORLDWIDE",
+        "REMOTE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "alljobs-il",
+      "name": "AllJobs",
+      "domain": "alljobs.co.il",
+      "region": "Israel",
+      "countries": [
+        "IL"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "drushim-il",
+      "name": "Drushim",
+      "domain": "drushim.co.il",
+      "region": "Israel",
+      "countries": [
+        "IL"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "bayt-ae",
+      "name": "Bayt.com",
+      "domain": "bayt.com",
+      "region": "Middle East",
+      "countries": [
+        "AE",
+        "WORLDWIDE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "gulftalent-ae",
+      "name": "GulfTalent",
+      "domain": "gulftalent.com",
+      "region": "Middle East",
+      "countries": [
+        "AE"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "jobstreet-sg",
+      "name": "JobStreet Singapore",
+      "domain": "jobstreet.com.sg",
+      "region": "Singapore",
+      "countries": [
+        "SG"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "mycareersfuture-sg",
+      "name": "MyCareersFuture",
+      "domain": "mycareersfuture.gov.sg",
+      "region": "Singapore",
+      "countries": [
+        "SG"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "jobsdb-apac",
+      "name": "JobsDB",
+      "domain": "jobsdb.com",
+      "region": "Singapore",
+      "countries": [
+        "SG"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "daijob-jp",
+      "name": "Daijob",
+      "domain": "daijob.com",
+      "region": "Japan",
+      "countries": [
+        "JP"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "indeed-jp",
+      "name": "Indeed Japan",
+      "domain": "jp.indeed.com",
+      "region": "Japan",
+      "countries": [
+        "JP"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "saramin-kr",
+      "name": "Saramin",
+      "domain": "saramin.co.kr",
+      "region": "South Korea",
+      "countries": [
+        "KR"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "jobkorea-kr",
+      "name": "JobKorea",
+      "domain": "jobkorea.co.kr",
+      "region": "South Korea",
+      "countries": [
+        "KR"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "indeed-br",
+      "name": "Indeed Brazil",
+      "domain": "br.indeed.com",
+      "region": "Brazil",
+      "countries": [
+        "BR"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "catho-br",
+      "name": "Catho",
+      "domain": "catho.com.br",
+      "region": "Brazil",
+      "countries": [
+        "BR"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    },
+    {
+      "id": "computrabajo",
+      "name": "Computrabajo",
+      "domain": "computrabajo.com",
+      "region": "Brazil",
+      "countries": [
+        "BR",
+        "ES"
+      ],
+      "parser": "web-only",
+      "priority": 6
+    }
+  ]
+}

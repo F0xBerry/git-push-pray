@@ -8,3 +8,15 @@ namespace: scout-prod
 
 commonLabels:
   environment: prod
+
+# Pin tags or digests in production after CI pushes immutable references.
+images:
+  - name: scout/api
+    newName: ghcr.io/f0xberry/scout-api
+    newTag: prod
+  - name: scout/web
+    newName: ghcr.io/f0xberry/scout-web
+    newTag: prod
+  - name: scout/worker
+    newName: ghcr.io/f0xberry/scout-worker
+    newTag: prod

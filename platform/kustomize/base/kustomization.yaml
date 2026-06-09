@@ -1,13 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-# Add manifests when services exist, e.g.:
-# resources:
-#   - deployment-api.yaml
-#   - deployment-worker.yaml
-#   - service-api.yaml
-
-resources: []
+resources:
+  - deployment-api.yaml
+  - service-api.yaml
+  - deployment-web.yaml
+  - service-web.yaml
+  - deployment-worker.yaml
 
 commonLabels:
   app.kubernetes.io/part-of: scout
+  app.kubernetes.io/managed-by: kustomize

@@ -1,0 +1,10 @@
+{
+  "name": "scout-worker",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Placeholder background worker — replace with queue consumer / agent jobs.",
+  "scripts": {
+    "start": "node src/index.mjs"
+  }
+}

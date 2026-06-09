@@ -8,3 +8,15 @@ namespace: scout-dev
 
 commonLabels:
   environment: dev
+
+# Replace registry/org/tags after you publish images (GHCR, ECR, etc.).
+images:
+  - name: scout/api
+    newName: ghcr.io/f0xberry/scout-api
+    newTag: dev
+  - name: scout/web
+    newName: ghcr.io/f0xberry/scout-web
+    newTag: dev
+  - name: scout/worker
+    newName: ghcr.io/f0xberry/scout-worker
+    newTag: dev

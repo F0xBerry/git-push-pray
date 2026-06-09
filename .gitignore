@@ -216,3 +216,17 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Node (app/web, app/api, app/worker)
+node_modules/
+**/node_modules/
+app/web/dist/
+app/api/dist/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Local vendor extract (if re-vendoring demo)
+.vendor-job-match-demo/
+*.zip

@@ -1,5 +1,7 @@
-# `app/worker` — background worker
+# Placeholder worker
 
-Long-running or queued work: agent loops, embeddings, tool calls to MCP servers.
+Replace with a real queue consumer, scheduled jobs, or agent background tasks.
 
-**Contract:** share types/config with `app/api` via a small internal package or duplicated OpenAPI — pick one convention for the team.
+Current process: periodic JSON log line (`WORKER_HEARTBEAT_MS`, default 30s).
+
+See root `Dockerfile.worker` and `platform/kustomize/base/deployment-worker.yaml`.

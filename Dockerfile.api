@@ -1,0 +1,31 @@
+# API (Express) — sources under app/api, skills under app/skills
+FROM node:20-alpine AS build
+
+WORKDIR /repo
+
+COPY app/api/package.json app/api/package-lock.json* ./app/api/
+RUN cd app/api && (npm ci 2>/dev/null || npm install)
+
+COPY app/api/ ./app/api/
+COPY app/skills/ /app/skills/
+# build-job-boards.mjs reads JOB_WEBSITES from the web app (monorepo split)
+COPY app/web/src/lib/jobWebsites.ts ./app/web/src/lib/jobWebsites.ts
+
+ENV SKILLS_DIR=/app/skills
+RUN cd app/api && npm run build
+
+FROM node:20-alpine
+
+WORKDIR /app/api
+
+COPY --from=build /repo/app/api/package.json /repo/app/api/package-lock.json* ./
+COPY --from=build /repo/app/api/dist ./dist
+COPY --from=build /app/skills /app/skills
+
+RUN npm ci --omit=dev 2>/dev/null || npm install --omit=dev
+
+ENV NODE_ENV=production
+ENV SKILLS_DIR=/app/skills
+EXPOSE 3001
+
+CMD ["node", "dist/index.js"]

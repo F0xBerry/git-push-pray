@@ -1,0 +1,15 @@
+# Code owners — add teammates: `/path @user1 @user2`
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+* @F0xBerry
+
+/app/api/ @F0xBerry
+/app/web/ @F0xBerry
+/app/worker/ @F0xBerry
+/app/prompts/ @F0xBerry
+/app/skills/ @F0xBerry
+/platform/ @F0xBerry
+/evals/ @F0xBerry
+/docs/ @F0xBerry
+/docker/ @F0xBerry
+/.github/ @F0xBerry

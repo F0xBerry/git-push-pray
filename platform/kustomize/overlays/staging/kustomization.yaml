@@ -8,3 +8,14 @@ namespace: scout-staging
 
 commonLabels:
   environment: staging
+
+images:
+  - name: scout/api
+    newName: ghcr.io/f0xberry/scout-api
+    newTag: staging
+  - name: scout/web
+    newName: ghcr.io/f0xberry/scout-web
+    newTag: staging
+  - name: scout/worker
+    newName: ghcr.io/f0xberry/scout-worker
+    newTag: staging
