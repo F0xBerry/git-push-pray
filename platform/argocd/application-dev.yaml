@@ -1,0 +1,22 @@
+# Argo CD Application — Scout dev
+# Adjust repoURL / targetRevision to your fork. Namespace must exist or enable CreateNamespace in syncPolicy.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: scout-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/F0xBerry/git-push-pray
+    targetRevision: main
+    path: platform/kustomize/overlays/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: scout-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
