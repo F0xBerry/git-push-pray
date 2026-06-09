@@ -1,0 +1,9 @@
+# Copy to `CODEOWNERS` at repo root and replace @handles with real GitHub
+# usernames or @org/teams. Then enable "Require code owner reviews" if desired.
+#
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# /app/ @YOUR_TEAM_APP
+# /platform/ @YOUR_TEAM_PLATFORM
+# /evals/ @YOUR_TEAM_QUALITY
+# /docs/ @YOUR_TEAM_DOCS
