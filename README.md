@@ -35,6 +35,13 @@ kubectl kustomize platform/kustomize/overlays/dev
 # or: kustomize build platform/kustomize/overlays/dev
 ```
 
+Деплой (если видишь `namespaces "scout-dev" not found` — сначала namespace, см. `platform/kustomize/overlays/dev/README.md`):
+
+```bash
+kubectl apply -f platform/kustomize/overlays/dev/namespace.yaml
+kubectl apply -k platform/kustomize/overlays/dev
+```
+
 В overlays заданы образы `ghcr.io/f0xberry/scout-{api,web,worker}` — **замени** на свой GHCR/ECR и теги после первого push из CI.
 
 ## Docker images (build from repo root)

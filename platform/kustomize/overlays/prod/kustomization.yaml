@@ -7,8 +7,10 @@ resources:
 
 namespace: scout-prod
 
-commonLabels:
-  environment: prod
+labels:
+  - includeSelectors: true
+    pairs:
+      environment: prod
 
 # Pin tags or digests in production after CI pushes immutable references.
 images:

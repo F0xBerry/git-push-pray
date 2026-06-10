@@ -7,8 +7,10 @@ resources:
 
 namespace: scout-dev
 
-commonLabels:
-  environment: dev
+labels:
+  - includeSelectors: true
+    pairs:
+      environment: dev
 
 # Replace registry/org/tags after you publish images (GHCR, ECR, etc.).
 images:

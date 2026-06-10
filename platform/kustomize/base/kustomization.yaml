@@ -8,6 +8,8 @@ resources:
   - service-web.yaml
   - deployment-worker.yaml
 
-commonLabels:
-  app.kubernetes.io/part-of: scout
-  app.kubernetes.io/managed-by: kustomize
+labels:
+  - includeSelectors: true
+    pairs:
+      app.kubernetes.io/part-of: scout
+      app.kubernetes.io/managed-by: kustomize

@@ -7,8 +7,10 @@ resources:
 
 namespace: scout-staging
 
-commonLabels:
-  environment: staging
+labels:
+  - includeSelectors: true
+    pairs:
+      environment: staging
 
 images:
   - name: scout/api
