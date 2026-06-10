@@ -1,40 +1,58 @@
 # Argo CD — Scout
 
-Источник правды для манифестов — **`platform/kustomize/overlays/<env>`**. Argo CD периодически **сравнивает** кластер с Git и синхронизирует.
+Источник правды для манифестов — **`platform/kustomize/overlays/<env>`**. Argo CD сравнивает кластер с Git и синхронизирует.
 
-## Предпосылки
+## Быстрая установка (текущий kube-контекст)
 
-- В кластере установлен **Argo CD** ([официальная установка](https://argo-cd.readthedocs.io/en/stable/getting_started/)).
-- Образы из overlay доступны из кластера (публичный GHCR или `imagePullSecrets`).
-
-## Установка Argo CD (кратко)
+Из корня репозитория:
 
 ```bash
-kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+chmod +x scripts/install-argocd.sh
+./scripts/install-argocd.sh
 ```
 
-Пароль админа и port-forward — см. [Get Started](https://argo-cd.readthedocs.io/en/stable/getting_started/).
+Скрипт: создаёт `argocd`, ставит Argo CD **v2.13.5** (через `kubectl apply -k platform/argocd/install`), ждёт `argocd-server`, применяет `application-dev.yaml`, печатает начальный пароль `admin`.
 
-## Подключить приложение (dev)
-
-1. Отредактируй `application-dev.yaml`: `spec.source.repoURL` и при необходимости `targetRevision`.
-2. Применить:
+### Вручную (без скрипта)
 
 ```bash
+kubectl create namespace argocd --dry-run=client -o yaml | kubectl apply -f -
+kubectl apply -k platform/argocd/install
+kubectl rollout status deployment/argocd-server -n argocd --timeout=300s
 kubectl apply -f platform/argocd/application-dev.yaml
 ```
 
-В UI Argo: приложение **scout-dev** → Sync.
+Установка использует закреплённый манифест upstream + патч `server.insecure=true`, чтобы UI открывался по **HTTP** на `port-forward` без отдельного TLS (для локальной/внутренней среды; для прод смотри [документацию Argo CD](https://argo-cd.readthedocs.io/)).
+
+## UI и логин
+
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:80
+```
+
+Браузер: **http://localhost:8080** — пользователь **`admin`**, пароль:
+
+```bash
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
+```
+
+В UI открой приложение **scout-dev** → **Sync** (или жди auto-sync: в `application-dev.yaml` включены `automated` + `CreateNamespace=true`).
+
+## Предпосылки
+
+- Образы из overlay доступны из кластера (публичный GHCR или `imagePullSecrets` на Deployment’ах Scout).
 
 ## Файлы
 
-| Файл | Назначение |
+| Путь | Назначение |
 |------|------------|
-| `application-dev.yaml` | `Application` на overlay **dev** (`path: platform/kustomize/overlays/dev`). |
+| `install/kustomization.yaml` | Upstream `install.yaml` + JSON patch `server.insecure=true` |
+| `application-dev.yaml` | `Application` → `platform/kustomize/overlays/dev` |
 
-Для **staging/prod** — скопируй файл, поменяй `metadata.name`, `spec.source.path`, `spec.destination.namespace`, опционально `project`.
+Перед применением при необходимости отредактируй **`application-dev.yaml`**: `spec.source.repoURL`, `targetRevision`.
 
-## Приватный репозиторий
+Для **staging/prod** — скопируй `application-dev.yaml`, поменяй `metadata.name`, `spec.source.path`, `spec.destination.namespace`.
 
-Создай credential в Argo (Settings → Repositories или Secret с label `argocd.argoproj.io/secret-type: repository`) и укажи в `Application` при необходимости.
+## Приватный Git
+
+Настрой репозиторий в Argo (Settings → Repositories или Secret с label `argocd.argoproj.io/secret-type: repository`).

@@ -18,7 +18,7 @@ Kubernetes manifests, GitOps, Helm/Kustomize, cluster config. **Not** applicatio
 kubectl apply -k platform/kustomize/overlays/dev
 ```
 
-**С GitOps:** [Argo CD](argocd/README.md) — `platform/argocd/application-dev.yaml` указывает на тот же путь `platform/kustomize/overlays/<env>`.
+**С GitOps:** см. [`argocd/README.md`](argocd/README.md) — установка `./scripts/install-argocd.sh` или `kubectl apply -k platform/argocd/install`, затем `application-dev.yaml` на тот же путь `platform/kustomize/overlays/<env>`.
 
 Типичный поток:
 

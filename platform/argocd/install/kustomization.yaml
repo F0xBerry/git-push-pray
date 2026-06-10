@@ -1,0 +1,18 @@
+# Pin version; bump when upgrading Argo CD.
+# https://github.com/argoproj/argo-cd/releases
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.13.5/manifests/install.yaml
+
+# Dev-friendly: HTTP UI on port-forward without extra TLS (do not use in internet-facing prod).
+patches:
+  - target:
+      kind: ConfigMap
+      name: argocd-cmd-params-cm
+    patch: |-
+      - op: add
+        path: /data
+        value:
+          server.insecure: "true"
