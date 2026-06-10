@@ -1,7 +1,7 @@
 # Scout — Job Searcher AI Assistant (DevOps Hackathon)
 
 Engineering harness around an agentic AI job-search assistant: commit-to-prod
-SDLC, evals in CI, PII protection, secrets management and FinOps.
+SDLC, evals in CI, PII protection, secrets management and FinOps
 
 ## Monorepo layout
 
