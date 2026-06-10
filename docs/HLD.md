@@ -12,13 +12,19 @@ Scout is an AI job-search assistant. This repository implements the **platform h
 2. **`app/api`** — HTTP edge, authentication, rate limits.
 3. **`app/worker`** — agent execution, tool calls, embeddings.
 4. **`app/skills` + `app/prompts`** — versioned agent configuration.
-5. **`platform/`** — Kubernetes manifests + GitOps.
+5. **`platform/`** — Kubernetes manifests (Kustomize) и опционально Argo CD.
 6. **`evals/`** — quality and safety gates in CI.
 7. **LLM gateway** — secrets, guardrails, routing (e.g. AgentGateway) — detailed in ADRs.
 
 ## Diagram
 
-Embed your architecture diagram here (export PNG from draw.io / Excalidur, or link to Mermaid in README if your renderer supports it).
+См. топологию **abox + Scout**: [`docs/abox-and-scout-topology.md`](abox-and-scout-topology.md) (Mermaid + ADR `docs/adr/0003-abox-vs-scout-clusters.md`).
+
+Вставь сюда экспорт из Excalidraw / draw.io при необходимости для слайдов.
+
+## abox (hackathon sandbox)
+
+Репозиторий [den-vasyliev/abox](https://github.com/den-vasyliev/abox): `make run` — локальный KinD с AgentGateway, kagent и платформенным стеком. Как совмещать со Scout из этого репо (Kustomize / Argo) — см. ссылку выше.
 
 ## Interfaces (fill in)
 

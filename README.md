@@ -12,7 +12,7 @@ app/
   worker/        # Placeholder worker (extend for queues / jobs)
   prompts/       # Versioned prompts
   skills/        # SKILL.md assets (SKILLS_DIR in API container)
-platform/        # Kustomize + Flux notes
+platform/        # Kustomize (+ optional Argo CD)
 evals/           # Eval suite + CI gate (to be wired)
 docs/            # ADR, HLD, task breakdown
 docker/          # nginx template for `web` image

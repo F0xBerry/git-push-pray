@@ -1,9 +1,8 @@
 # Architectural Decision Records (ADR)
 
-Use one file per decision, numbered sequentially:
+Use one file per decision, numbered sequentially. Current:
 
-- `0001-use-flux-for-gitops.md`
-- `0002-llm-provider-abstraction.md`
+- `0003-abox-vs-scout-clusters.md` — no Flux in repo; Kustomize + optional Argo CD
 
 Suggested template:
 

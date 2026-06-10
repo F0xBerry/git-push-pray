@@ -19,7 +19,7 @@ Goal: commit-to-prod automation, infra and prompts as versioned code.
 | A1 | Define monorepo structure: `app/` (worker + API), `platform/`, `evals/` | Clear ownership boundaries |
 | A2 | GitHub Actions CI: `lint → unit → build → push image` | Cache deps, fail fast |
 | A3 | Containerize app (worker + API); pin base image digests | Reproducible builds |
-| A4 | GitOps CD with Flux (or ArgoCD): reconcile manifests on merge to `main` | Pull-based deploy |
+| A4 | GitOps CD (e.g. Argo CD) or CI `kubectl apply`: reconcile manifests on merge to `main` | Pull-based or pipeline deploy |
 | A5 | Helm/Kustomize manifests + `dev` / `staging` / `prod` overlays | Promotion via overlays |
 | A6 | Treat system prompts / `SKILL.md` / model config as versioned code in PR flow | Prompt change = PR |
 | A7 | Bootstrap base infra via GitHub Codespaces + `abox` agentic sandbox | Fast onboarding |

@@ -8,20 +8,27 @@ Kubernetes manifests, GitOps, Helm/Kustomize, cluster config. **Not** applicatio
 |------|---------|
 | `kustomize/base/` | Shared Deployments, Services, ConfigMaps, etc. |
 | `kustomize/overlays/{dev,staging,prod}/` | Environment-specific patches (replicas, resources, image tags, namespaces). |
-| `flux/install/` | Flux: `GitRepository` + Flux `Kustomization` → тот же overlay. |
-| `argocd/` | Argo CD: `Application` → тот же overlay. |
+| `argocd/` | Argo CD: `Application` → тот же overlay (опционально). |
 
-## CD: Flux или Argo CD
+## Деплой
 
-Один репозиторий, **одни** Kustomize-манифесты под `kustomize/overlays/`. Разница только в **контроллере**:
+**Без GitOps-контроллера в репо:** применяй Kustomize напрямую:
 
-- **Flux** — см. `flux/README.md`, применить `platform/flux/install/dev/`.
-- **Argo CD** — см. `argocd/README.md`, применить `platform/argocd/application-dev.yaml`.
+```bash
+kubectl apply -k platform/kustomize/overlays/dev
+```
 
+**С GitOps:** [Argo CD](argocd/README.md) — `platform/argocd/application-dev.yaml` указывает на тот же путь `platform/kustomize/overlays/<env>`.
 
-1. CI builds and pushes a container image (digest or tag per commit).
-2. GitOps controller reconciles `platform/kustomize/overlays/<env>` to the cluster.
-3. Promote by PR: `dev` → `staging` → `prod` overlay changes only.
+Типичный поток:
+
+1. CI собирает и пушит образы (тег/digest на коммит).
+2. Либо пайплайн делает `kubectl apply -k …`, либо Argo CD синхронизирует Git с кластером.
+3. Продвижение окружений — PR в overlay: `dev` → `staging` → `prod`.
+
+## abox (hackathon sandbox)
+
+[abox](https://github.com/den-vasyliev/abox) (`make run`) поднимает свой KinD и платформенный стек (в т.ч. свой сценарий GitOps). Как совмещать с этим репозиторием — [`docs/abox-and-scout-topology.md`](../docs/abox-and-scout-topology.md).
 
 ## Secrets
 

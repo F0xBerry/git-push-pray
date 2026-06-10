@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: scout-prod
+  labels:
+    app.kubernetes.io/part-of: scout
+    environment: prod

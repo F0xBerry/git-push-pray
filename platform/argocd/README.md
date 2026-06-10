@@ -1,6 +1,6 @@
 # Argo CD — Scout
 
-Те же манифесты, что и для Flux: путь в Git **`platform/kustomize/overlays/<env>`**. Argo CD периодически **сравнивает** кластер с Git и синхронизирует.
+Источник правды для манифестов — **`platform/kustomize/overlays/<env>`**. Argo CD периодически **сравнивает** кластер с Git и синхронизирует.
 
 ## Предпосылки
 
@@ -34,16 +34,6 @@ kubectl apply -f platform/argocd/application-dev.yaml
 | `application-dev.yaml` | `Application` на overlay **dev** (`path: platform/kustomize/overlays/dev`). |
 
 Для **staging/prod** — скопируй файл, поменяй `metadata.name`, `spec.source.path`, `spec.destination.namespace`, опционально `project`.
-
-## Сравнение с Flux
-
-| | Flux | Argo CD |
-|---|------|---------|
-| Модель | Контроллеры в кластере тянут Git | Argo Application указывает на Git / Helm |
-| Манифесты в репо | `GitRepository` + `Kustomization` (CR Flux) | `Application` (CR Argo) |
-| Путь к манифестам | У нас: `platform/flux/install/dev/` | У нас: `platform/argocd/` |
-
-Оба варианта CD используют **один** Kustomize: `platform/kustomize/overlays/...`.
 
 ## Приватный репозиторий
 
