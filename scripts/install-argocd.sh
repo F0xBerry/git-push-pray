@@ -7,7 +7,8 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 kubectl create namespace argocd --dry-run=client -o yaml | kubectl apply -f -
 
 echo "Installing Argo CD v2.13.5 (kustomize + insecure UI patch for local port-forward)..."
-kubectl apply -k "${ROOT}/platform/argocd/install"
+# install/kustomization.yaml sets namespace: argocd (upstream YAML omits it on many objects).
+kubectl apply -k "${ROOT}/platform/argocd/install" -n argocd
 
 echo "Waiting for argocd-server..."
 kubectl rollout status deployment/argocd-server -n argocd --timeout=300s

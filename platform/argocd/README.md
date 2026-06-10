@@ -11,13 +11,15 @@ chmod +x scripts/install-argocd.sh
 ./scripts/install-argocd.sh
 ```
 
-Скрипт: создаёт `argocd`, ставит Argo CD **v2.13.5** (через `kubectl apply -k platform/argocd/install`), ждёт `argocd-server`, применяет `application-dev.yaml`, печатает начальный пароль `admin`.
+Скрипт: создаёт `argocd`, ставит Argo CD **v2.13.5** (`kubectl apply -k … -n argocd` — upstream без `metadata.namespace` иначе уезжает в `default`), ждёт `argocd-server`, применяет `application-dev.yaml`, печатает начальный пароль `admin`.
+
+Если уже запускал старую версию скрипта без `-n argocd`, часть объектов могла оказаться в **`default`**. Удали их или переустанови: `kubectl delete deployment,svc,sa,cm,secret -n default -l app.kubernetes.io/part-of=argocd` (осторожно, только если в `default` нет других приложений Argo).
 
 ### Вручную (без скрипта)
 
 ```bash
 kubectl create namespace argocd --dry-run=client -o yaml | kubectl apply -f -
-kubectl apply -k platform/argocd/install
+kubectl apply -k platform/argocd/install -n argocd
 kubectl rollout status deployment/argocd-server -n argocd --timeout=300s
 kubectl apply -f platform/argocd/application-dev.yaml
 ```
