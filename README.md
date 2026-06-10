@@ -44,6 +44,8 @@ kubectl apply -k platform/kustomize/overlays/dev
 
 В overlays заданы образы `ghcr.io/f0xberry/scout-{api,web,worker}` — **замени** на свой GHCR/ECR и теги после первого push из CI.
 
+**Prod:** образы закреплены по **digest** в `platform/kustomize/overlays/prod/kustomization.yaml`; обновление — `python3 scripts/pin_prod_digests.py` (см. `platform/kustomize/overlays/prod/README.md`).
+
 ## Docker images (build from repo root)
 
 | Dockerfile | Image role |
