@@ -15,6 +15,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 /** Task → skill folder names under `skills/` (repo root). */
 const TASK_SKILL_MAP: Record<LlmTask, string[]> = {
   job_match: [
+    'search-jobs',
     'job-search',
     'global-job-boards',
     'agent-tools',
@@ -22,9 +23,10 @@ const TASK_SKILL_MAP: Record<LlmTask, string[]> = {
     'job-match-scoring',
     'job-analyzer',
     'transferable-skills',
+    'draft-cover-letter',
     'structured-output',
   ],
-  cv_extract: ['cv-extraction', 'structured-output'],
+  cv_extract: ['cv-extraction', 'tailor-cv', 'structured-output'],
 };
 
 function resolveSkillsRoot(): string {

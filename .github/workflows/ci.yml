@@ -6,6 +6,13 @@ on:
   pull_request:
 
 jobs:
+  swimlane-b:
+    name: Swimlane B — skills guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash scripts/verify-swimlane-b-skills.sh
+
   api:
     name: API — lint & build
     runs-on: ubuntu-latest

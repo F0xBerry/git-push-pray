@@ -28,6 +28,8 @@ Goal: commit-to-prod automation, infra and prompts as versioned code.
 **Epic:** Agent Harness — Memory, Skills, Protocols
 Goal: build the Model + Harness contour around the agent.
 
+**Статус в репозитории:** см. [`docs/swimlane-b-agent-harness.md`](swimlane-b-agent-harness.md) и ADR `docs/adr/0004-swimlane-b-agent-harness.md`.
+
 | ID | Task | Notes |
 |----|------|-------|
 | B1 | Deploy document agent (kagent) for candidate memory | CV, skills, dialog history |
