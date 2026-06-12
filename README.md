@@ -57,7 +57,7 @@ kubectl apply -k platform/kustomize/overlays/dev
 ## Docs
 
 - `docs/TASK_BREAKDOWN.md` — swimlanes и задачи.
-- `docs/swimlane-b-agent-harness.md` — **Swimlane B**: skills, Qdrant (опционально), kagent/MCP границы.
+- `docs/swimlane-b-agent-harness.md` — **Swimlane B**: skills, CI guard; kagent/vector — см. статус в документе.
 - `docs/HLD.md` — черновик HLD (добавь диаграмму).
 - `docs/adr/` — ADR.
 

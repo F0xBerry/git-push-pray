@@ -8,7 +8,6 @@ import { loadAllSkills } from './ai/skills/loader.js';
 import { getActiveSkillIdsForTask } from './services/llm.js';
 import { loadJobBoardCatalog } from './agent/boards.js';
 import { webSearchBackend } from './agent/tools/web-search.js';
-import { getVectorBackendStatus } from './agent/vector-backend.js';
 import filesRoutes from './routes/files.js';
 import jobsRoutes from './routes/jobs.js';
 
@@ -17,9 +16,8 @@ const app = express();
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json({ limit: '2mb' }));
 
-app.get('/api/health', async (_req, res) => {
+app.get('/api/health', (_req, res) => {
   const llm = resolveLlmConfig();
-  const vector = await getVectorBackendStatus();
   res.json({
     status: 'ok',
     demoMode: config.demoMode,
@@ -35,10 +33,6 @@ app.get('/api/health', async (_req, res) => {
       skillsAvailable: loadAllSkills().map((s) => s.id),
       skillsJobMatch: getActiveSkillIdsForTask('job_match'),
       skillsCvExtract: getActiveSkillIdsForTask('cv_extract'),
-    },
-    vector: {
-      swimlaneB: true,
-      ...vector,
     },
   });
 });

@@ -2,48 +2,27 @@
 
 **Epic:** Agent Harness — Memory, Skills, Protocols (`docs/TASK_BREAKDOWN.md`).
 
-Кратко, что здесь сделано и куда смотреть дальше.
+Ниже — что **сделано в коде/репо** и что остаётся **вне репозитория** или на следующие итерации.
 
-## B1 — kagent / candidate memory
+## Статус по пунктам B1–B6
 
-**В этом репозитории** не поднимается kagent как отдельный Helm-чарт: для платформенного sandbox используй **[abox](https://github.com/den-vasyliev/abox)** (`make run`) — см. [`docs/abox-and-scout-topology.md`](abox-and-scout-topology.md).
+| ID | Задача | В репозитории сейчас |
+|----|--------|----------------------|
+| **B1** | kagent для памяти кандидата | **Не деплоим** kagent из этого репо. Рекомендация: платформенный sandbox **[abox](https://github.com/den-vasyliev/abox)** — см. [`docs/abox-and-scout-topology.md`](abox-and-scout-topology.md). Локальные загрузки API — volumes в `docker-compose`. |
+| **B2** | Vector store (эмбеддинги, семантика) | **Не включали** отдельный сервис в compose/k8s (осознанно убрали опциональный Qdrant). Реализация — когда понадобится: свой кластер, **Qdrant Cloud**, **pgvector** и т.д., плюс код upsert/search в API/worker. |
+| **B3** | SKILL: `search-jobs`, `tailor-cv`, `draft-cover-letter` | **Сделано:** каталоги `app/skills/{search-jobs,tailor-cv,draft-cover-letter}/SKILL.md`, подключены в `app/api/ai/skills/loader.ts`. |
+| **B4** | Resume skills | **Сделано:** `tailor-cv` + существующий `cv-extraction`. |
+| **B5** | MCP как tools | **Частично:** in-process **tools** (HTTP boards, web search) — `app/skills/agent-tools/SKILL.md` + `app/api/agent/tools/`. Отдельный **MCP stdio**-сервер в репо **не** поднимали — при необходимости вынести job boards за процесс. |
+| **B6** | Доставка skills в среды | **Сделано:** skills в образе API (`Dockerfile.api`), CI **`scripts/verify-swimlane-b-skills.sh`** (`.github/workflows/ci.yml`). |
 
-Здесь: **API** хранит загрузки/данные в volume (`docker-compose` → `api-uploads`, `api-data`); долговременная «память кандидата» в проде — отдельное хранилище + vector (ниже).
+## Итог
 
-## B2 — Vector store (семантика / кэш)
-
-- **Локально (опционально):** сервис **Qdrant** в `docker-compose.yml` под профилем **`vector`**.
-- Запуск: `docker compose --profile vector up -d` и в `.env` задать **`QDRANT_URL=http://qdrant:6333`** для сервиса `api`.
-- **Проверка:** `GET /api/health` → поле **`vector`**: `enabled`, `ok`, при необходимости `detail`.
-
-Индексация эмбеддингов и запросы к коллекциям — следующий шаг (отдельный модуль агента); контур URL + health уже есть.
-
-## B3 / B4 — SKILL.md (изолированные навыки)
-
-Добавлены каталоги:
-
-| Skill | Назначение |
-|-------|------------|
-| `search-jobs` | Оркестрация поиска вакансий (ссылки на детальные skills). |
-| `tailor-cv` | Адаптация резюме под роль/JD без выдумок. |
-| `draft-cover-letter` | Короткое сопроводительное письмо по фактам CV/JD. |
-
-Подключение к LLM-задачам: `app/api/ai/skills/loader.ts` — `job_match` и `cv_extract` включают эти skills в system appendix.
-
-## B5 — MCP как инструменты
-
-Серверные **tools** (HTTP job boards, web search по провайдеру) описаны в **`app/skills/agent-tools/SKILL.md`** и коде `app/api/agent/tools/`. Отдельный процесс **MCP stdio** (как в Cursor) в API пока не обязателен: тот же **контракт «инструмент → результат»** закрывается Express-агентом.
-
-Расширение: вынести job boards в отдельный MCP-сервер и вызывать из worker — см. ADR `docs/adr/0004-swimlane-b-agent-harness.md`.
-
-## B6 — Доставка skills в среды
-
-- **Образ API:** `Dockerfile.api` копирует **`app/skills/`** в образ (`SKILLS_DIR=/app/skills`) — любой merge в `main` с изменением skills попадает в сборку CI → registry → GitOps (Swimlane A).
-- **Проверка в CI:** job вызывает `scripts/verify-swimlane-b-skills.sh`.
+**Полностью «закрыть» Swimlane B по смыслу хакатона** (включая kagent + вектор + внешний MCP) в одном репо **не требовалось** и часто **не делается** — часть намеренно на **abox** / внешние сервисы.  
+**По репозиторию:** закрыты **B3, B4, B6**, **B5** на уровне текущей архитектуры tools, **B1** — документированно через abox, **B2** — отложено до отдельного решения по хранилищу.
 
 ## Связанные файлы
 
-- `docker-compose.yml` — профиль `vector`, переменная `QDRANT_URL`
-- `app/api/agent/vector-backend.ts` — health к Qdrant
+- `app/skills/search-jobs/`, `tailor-cv/`, `draft-cover-letter/`
+- `app/api/ai/skills/loader.ts`
 - `scripts/verify-swimlane-b-skills.sh`
 - `docs/adr/0004-swimlane-b-agent-harness.md`

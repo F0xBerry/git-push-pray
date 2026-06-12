@@ -9,7 +9,6 @@ services:
       LLM_PROVIDER: ${LLM_PROVIDER:-auto}
       DEMO_MODE: ${DEMO_MODE:-false}
       SKILLS_DIR: /app/skills
-      QDRANT_URL: ${QDRANT_URL:-}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
       GEMINI_API_KEY: ${GEMINI_API_KEY:-}
@@ -21,18 +20,6 @@ services:
     volumes:
       - api-data:/app/api/data
       - api-uploads:/app/api/uploads
-    restart: unless-stopped
-
-  # Swimlane B — optional vector DB for embeddings / profile cache (Qdrant).
-  # Start with: docker compose --profile vector up -d
-  # Set in .env: QDRANT_URL=http://qdrant:6333 (service DNS name inside compose network)
-  qdrant:
-    image: qdrant/qdrant:v1.12.5
-    profiles: ["vector"]
-    ports:
-      - "${QDRANT_HOST_PORT:-6333}:6333"
-    volumes:
-      - qdrant-data:/qdrant/storage
     restart: unless-stopped
 
   web:
@@ -50,4 +37,3 @@ services:
 volumes:
   api-data:
   api-uploads:
-  qdrant-data:
