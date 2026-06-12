@@ -47,4 +47,7 @@ export const config = {
   jobSearchConcurrency: Number(process.env.JOB_SEARCH_CONCURRENCY || 4),
   jobSearchResultsPerBoard: Number(process.env.JOB_SEARCH_RESULTS_PER_BOARD || 8),
   jobSearchFetchTimeoutMs: Number(process.env.JOB_SEARCH_FETCH_TIMEOUT_MS || 15000),
+
+  /** Optional Qdrant base URL (e.g. http://qdrant:6333) — Swimlane B vector cache. */
+  qdrantUrl: (process.env.QDRANT_URL || process.env.VECTOR_URL || '').trim(),
 } as const;

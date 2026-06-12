@@ -3,7 +3,7 @@
 Use one file per decision, numbered sequentially. Current:
 
 - `0003-abox-vs-scout-clusters.md` — no Flux in repo; Kustomize + optional Argo CD
-- `0004-swimlane-b-agent-harness.md` — skills, kagent/MCP boundaries (no bundled vector DB)
+- `0004-swimlane-b-agent-harness.md` — skills, optional Qdrant, kagent/MCP boundaries
 
 Suggested template:
 
