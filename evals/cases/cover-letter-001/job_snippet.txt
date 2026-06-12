@@ -1,0 +1,3 @@
+Company: Acme Corp
+Role: Platform Engineer (Kubernetes, Terraform, CI/CD)
+We value GitOps and safe production rollouts.

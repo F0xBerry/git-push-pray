@@ -43,6 +43,8 @@ Goal: build the Model + Harness contour around the agent.
 **Epic:** Eval Suite & CI Quality Gates
 Goal: measurable quality with a hard CI gate.
 
+**Статус в репозитории:** [`docs/swimlane-c-evals.md`](swimlane-c-evals.md), ADR `docs/adr/0005-swimlane-c-evals-ci.md`.
+
 | ID | Task | Notes |
 |----|------|-------|
 | C1 | Build `evals/` structure with cases: CV + jobs → expected matching | Versioned fixtures |

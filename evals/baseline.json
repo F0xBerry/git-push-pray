@@ -1,0 +1,5 @@
+{
+  "_comment": "Swimlane C — minimum scores (0–100) for CI gate",
+  "match_cv_jobs": { "minScore": 35 },
+  "cover_letter": { "minScore": 55, "maxForbiddenPhrases": 0 }
+}

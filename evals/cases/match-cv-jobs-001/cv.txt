@@ -1,0 +1,3 @@
+Alex Dev — Senior Platform Engineer
+Skills: Kubernetes, Docker, Terraform, TypeScript, GitHub Actions
+Experience: 5 years building CI/CD pipelines and kustomize-based GitOps for SaaS teams.

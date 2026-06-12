@@ -13,7 +13,7 @@ Scout is an AI job-search assistant. This repository implements the **platform h
 3. **`app/worker`** — agent execution, tool calls, embeddings.
 4. **`app/skills` + `app/prompts`** — versioned agent configuration (Swimlane B: см. [`docs/swimlane-b-agent-harness.md`](../swimlane-b-agent-harness.md), ADR 0004).
 5. **`platform/`** — Kubernetes manifests (Kustomize) и опционально Argo CD.
-6. **`evals/`** — quality and safety gates in CI.
+6. **`evals/`** — quality and safety gates in CI (Swimlane C: см. [`docs/swimlane-c-evals.md`](swimlane-c-evals.md)).
 7. **LLM gateway** — secrets, guardrails, routing (e.g. AgentGateway) — detailed in ADRs.
 
 ## Diagram

@@ -1,0 +1,6 @@
+Dear Acme Corp hiring team,
+
+I am excited to apply for the Platform Engineer role. My recent work includes Kubernetes and Terraform automation, and I have helped teams adopt GitOps with Argo-style workflows. I would welcome the chance to contribute to Acme’s reliability culture.
+
+Best regards,
+Alex Dev

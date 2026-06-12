@@ -1,17 +1,25 @@
 # `evals/` — quality & safety evaluation suite
 
-Automated checks on agent outputs: matching, cover letters, hallucinations, plus regression cases for **prompt injection** and **PII leakage**.
+Automated checks on agent outputs: matching, cover letters, hallucination **proxies**, plus CI gate vs **`baseline.json`**.
+
+## Quick run
+
+```bash
+node evals/runner/run.mjs
+```
 
 ## Layout
 
 | Path | Purpose |
 |------|---------|
-| `cases/` | One folder per scenario: fixtures (CV, jobs), `expected.md` or structured expectations. |
-| `runner/` | Scripts that invoke the agent / judge and emit scores (exit non-zero below baseline for CI gate). |
+| `baseline.json` | Minimum scores per case type (CI fails if lower). |
+| `cases/<id>/` | `meta.json`, fixtures (`cv.txt`, `jobs.json`, …), `expected.md`. |
+| `runner/run.mjs` | Deterministic scorer + exit code gate. |
+| `runner/judge-llm.mjs` | Stub for future LLM-as-judge (C3). |
 
-## CI gate
+## Docs
 
-The pipeline should run `evals/` on every PR (especially prompt/skill changes) and **block merge** if scores fall below the stored baseline — see hackathon success criteria.
+- [`docs/swimlane-c-evals.md`](../docs/swimlane-c-evals.md)
 
 ## References
 

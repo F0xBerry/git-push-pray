@@ -1,9 +1,14 @@
 # Eval runner
 
-Place the CLI or scripts here, e.g. `python -m evals.runner` or `node evals/runner/index.js`.
+| Script | Purpose |
+|--------|---------|
+| `run.mjs` | Load `cases/*/meta.json`, score against `../baseline.json`, exit **1** on failure. |
+| `judge-llm.mjs` | Optional LLM-as-judge stub (C3). |
 
-Requirements:
+Run from repo root:
 
-- Deterministic enough for CI (pin judge model/version in config).
-- Exit code `0` = pass; non-zero = fail gate.
-- Print or upload a report (scores per axis) for PR visibility.
+```bash
+node evals/runner/run.mjs
+```
+
+CI: see `.github/workflows/ci.yml` job **Swimlane C — eval gate**.

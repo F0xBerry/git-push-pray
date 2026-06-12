@@ -1,0 +1,13 @@
+{
+  "id": "cover-letter-001",
+  "type": "cover_letter",
+  "baselineKey": "cover_letter",
+  "requiredCompanyToken": "Acme",
+  "requiredTopicTokens": ["kubernetes", "terraform"],
+  "forbiddenPhrases": [
+    "guaranteed offer",
+    "100% success",
+    "I worked at Google for 20 years",
+    "wire transfer"
+  ]
+}
