@@ -1,5 +1,8 @@
 name: CI
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [main, master]
@@ -61,9 +64,15 @@ jobs:
       - run: npm run build
 
   kustomize:
-    name: Kustomize — render dev overlay
+    name: Kustomize — render overlays
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: kubectl kustomize
-        run: kubectl kustomize platform/kustomize/overlays/dev > /tmp/rendered.yaml && wc -l /tmp/rendered.yaml
+      - name: kubectl kustomize (dev, staging, prod)
+        run: |
+          set -euo pipefail
+          for env in dev staging prod; do
+            echo "== overlay: ${env} =="
+            kubectl kustomize "platform/kustomize/overlays/${env}" > "/tmp/rendered-${env}.yaml"
+            wc -l "/tmp/rendered-${env}.yaml"
+          done

@@ -13,7 +13,7 @@ app/
   prompts/       # Versioned prompts
   skills/        # SKILL.md assets (SKILLS_DIR in API container)
 platform/        # Kustomize (+ optional Argo CD)
-evals/           # Eval suite + CI gate (to be wired)
+evals/           # Eval suite + CI gate (deterministic runner in CI)
 docs/            # ADR, HLD, task breakdown
 docker/          # nginx template for `web` image
 ```
@@ -56,6 +56,7 @@ kubectl apply -k platform/kustomize/overlays/dev
 
 ## Docs
 
+- `docs/swimlanes-status.md` — краткий статус swimlanes A–E и локальные проверки.
 - `docs/TASK_BREAKDOWN.md` — swimlanes и задачи.
 - `docs/swimlane-c-evals.md` — **Swimlane C**: фикстуры, CI gate, Vitest.
 - `docs/HLD.md` — черновик HLD (добавь диаграмму).
