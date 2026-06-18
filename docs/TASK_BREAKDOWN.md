@@ -64,7 +64,7 @@ Goal: defend PII, lock down secrets, justify hosting/provider, know unit cost.
 | D2 | PII / data governance: minimize data sent to LLM + redaction | CV = PII |
 | D3 | Secrets management: AgentGateway / External Secrets Operator / Vault — no keys in git | |
 | D4 | Output guardrails: system-prompt-leak filter + toxicity/discrimination guard | Legally sensitive |
-| D5 | Prompt-injection & PII-leak regression suite (eval + security control) | Shared with Swimlane C |
+| D5 | Prompt-injection & PII-leak regression suite (eval + security control) | **Частично:** `evals/runner` + `scripts/verify-skills-security.sh` (skills); полный injection-suite — далее |
 | D6 | Supply chain: SBOM, signed images (cosign), pinned digests | Optional |
 | D7 | Hosting & LLM provider selection (provider-agnostic) — ADR | Alternatives, not one |
 | D8 | FinOps: cost-per-active-user model + routing / caching / batch levers + cost anomaly alerts | Unit metric |

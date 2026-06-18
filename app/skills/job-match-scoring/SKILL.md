@@ -14,6 +14,10 @@ Compute `score` for each listing using these factors:
 | **Requirement gap severity** | 15% | 0 must-have gaps → 100%; 1 minor → 80%; 1 major → 50%; 2+ major → 20%. Major = core tech with no CV evidence. |
 | **Growth opportunity** | 10% | Leverages strengths + reasonable stretch → 100%; same skills only → 50%; all-new stack → 30%. |
 
+## Data handling
+
+- Score only from provided CV/query fields and **verified listings** from **tool output**; **never invent** CV facts to justify a higher match.
+
 ## Rationale field
 
 In ≤40 words, mention the top 1–2 factors driving the score (not a generic "good fit").

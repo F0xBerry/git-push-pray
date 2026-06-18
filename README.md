@@ -70,6 +70,8 @@ kubectl apply -k platform/kustomize/overlays/dev
 
 Не коммить `.env` и ключи LLM. Для прод — Secrets / External Secrets / AgentGateway.
 
+Локально и в CI: `bash scripts/verify-skills-security.sh` — все `app/skills/*/SKILL.md` проверяются на шаблоны секретов, признаки привязки к **tool output** / схеме (анти-hallucination) и наличие секций **## Forbidden** / **## Data handling** / **## Security** для навыков, работающих с CV/вакансиями как с **PII**.
+
 ## Upstream demo
 
 Исходное приложение: [GregoryKoshelenko/devops-sre-job-match-app-example](https://github.com/GregoryKoshelenko/devops-sre-job-match-app-example).

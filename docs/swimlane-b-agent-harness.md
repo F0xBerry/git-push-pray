@@ -13,7 +13,7 @@
 | **B3** | SKILL: `search-jobs`, `tailor-cv`, `draft-cover-letter` | **Сделано:** каталоги `app/skills/{search-jobs,tailor-cv,draft-cover-letter}/SKILL.md`, подключены в `app/api/ai/skills/loader.ts`. |
 | **B4** | Resume skills | **Сделано:** `tailor-cv` + существующий `cv-extraction`. |
 | **B5** | MCP как tools | **Частично:** in-process **tools** (HTTP boards, web search) — `app/skills/agent-tools/SKILL.md` + `app/api/agent/tools/`. Отдельный **MCP stdio**-сервер в репо **не** поднимали — при необходимости вынести job boards за процесс. |
-| **B6** | Доставка skills в среды | **Сделано:** skills в образе API (`Dockerfile.api`), CI **`scripts/verify-swimlane-b-skills.sh`** (`.github/workflows/ci.yml`). |
+| **B6** | Доставка skills в среды | **Сделано:** skills в образе API (`Dockerfile.api`), CI **`scripts/verify-swimlane-b-skills.sh`** (наличие файлов + **`scripts/verify-skills-security.sh`** — секрети, grounding, PII-секції), `.github/workflows/ci.yml`. |
 
 ## Итог
 
@@ -26,5 +26,6 @@
 - `app/api/ai/skills/loader.ts`
 - `app/api/agent/vector-backend.ts` — health к Qdrant
 - `docker-compose.yml` — профиль `vector`, `QDRANT_URL`
-- `scripts/verify-swimlane-b-skills.sh`
+- `scripts/verify-swimlane-b-skills.sh` — обов’язкові `SKILL.md`
+- `scripts/verify-skills-security.sh` — перевірка всіх skills на секрети, grounding та секції PII/даних
 - `docs/adr/0004-swimlane-b-agent-harness.md`

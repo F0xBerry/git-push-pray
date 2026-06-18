@@ -14,7 +14,7 @@ Swimlane B (`docs/TASK_BREAKDOWN.md`) covers kagent-style memory, vector retriev
 2. **Vector store (B2):** Provide an **optional** **Qdrant** service via Docker Compose profile `vector`, `QDRANT_URL` / `VECTOR_URL` on the API, and a lightweight **`/api/health` → `vector`** probe. **No** embedding upsert/search pipeline in this increment (follow-up).
 3. **kagent (B1):** Do not deploy kagent from this repo; use **abox** for platform sandbox demos and document the split (`docs/abox-and-scout-topology.md`).
 4. **MCP (B5):** Keep **in-process HTTP/provider tools** as the default integration path; external MCP servers remain an optional extension.
-5. **CI (B6):** Keep `scripts/verify-swimlane-b-skills.sh` to validate required skill files on every PR.
+5. **CI (B6):** Keep `scripts/verify-swimlane-b-skills.sh` to validate required skill files on every PR, and run **`scripts/verify-skills-security.sh`** from it (secret-shaped tokens, grounding cues, PII/data section headers for CV-touching skills).
 
 ## Consequences
 

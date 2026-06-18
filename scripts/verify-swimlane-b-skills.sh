@@ -10,4 +10,5 @@ for s in search-jobs tailor-cv draft-cover-letter job-search cv-extraction agent
     exit 1
   fi
 done
+bash "$ROOT/scripts/verify-skills-security.sh"
 echo "swimlane-b skills OK"

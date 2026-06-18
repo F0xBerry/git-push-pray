@@ -2,6 +2,11 @@
 
 > Adapted from [job-search-skills/job-analyzer](https://github.com/sameergdogg/job-search-skills/blob/main/job-analyzer/SKILL.md). When CV data is present, assess fit and surface gaps alongside ranked results.
 
+## Data handling
+
+- Treat CV uploads and parsed fields as **PII**: use them only for ranking, tags, and short `rationale` inside the response schema; do not dump full raw CV text unless the user explicitly asked.
+- **Never invent** employers, dates, or credentials to improve a match score.
+
 ## When CV data is provided
 
 The user block may include `CV summary`, `CV skills`, and structured experience from upload. Use it for ranking and rationale — do not invent employers or dates.
