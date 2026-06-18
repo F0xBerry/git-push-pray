@@ -59,7 +59,7 @@ kubectl apply -k platform/kustomize/overlays/dev
 - `docs/swimlanes-status.md` — краткий статус swimlanes A–E и локальные проверки.
 - `docs/TASK_BREAKDOWN.md` — swimlanes и задачи.
 - `docs/swimlane-c-evals.md` — **Swimlane C**: фикстуры, CI gate, Vitest.
-- `docs/HLD.md` — черновик HLD (добавь диаграмму).
+- `docs/HLD.md` — визначення HLD, high-level design, компоненти, **Mermaid**-діаграми та таблиця інтерфейсів.
 - `docs/adr/` — ADR.
 
 ## Code owners
