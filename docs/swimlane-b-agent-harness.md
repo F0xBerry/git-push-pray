@@ -29,3 +29,4 @@
 - `scripts/verify-swimlane-b-skills.sh` — обов’язкові `SKILL.md`
 - `scripts/verify-skills-security.sh` — перевірка всіх skills на секрети, grounding та секції PII/даних
 - `docs/adr/0004-swimlane-b-agent-harness.md`
+- `docs/adr/0006-skills-security-ci-gate.md` — CI-перевірка skills (секрети, grounding, PII-секції)
